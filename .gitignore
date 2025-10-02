@@ -1,0 +1,9 @@
+# Ignore all data files - only share the interface
+*.json
+*.py
+*.txt
+*.docx
+CM_Drafts/
+analysis/
+*.md
+!README.md
