@@ -51,10 +51,24 @@
             user-select: none;
         }
         .toc-content {
-            display: block;
+            display: none;
             transition: all 0.3s ease;
         }
         .toc-content.collapsed {
+            display: none;
+        }
+        .complexity-content {
+            display: none;
+            transition: all 0.3s ease;
+        }
+        .complexity-content.collapsed {
+            display: none;
+        }
+        .structural-content {
+            display: none;
+            transition: all 0.3s ease;
+        }
+        .structural-content.collapsed {
             display: none;
         }
         .toc-section {
@@ -379,7 +393,7 @@
         </div>
 
         <div class="table-of-contents">
-            <h2 onclick="toggleTOC()" style="cursor: pointer;">📚 Table of Contents <span id="toc-toggle">▼</span></h2>
+            <h2 onclick="toggleTOC()" style="cursor: pointer;">📚 Table of Contents <span id="toc-toggle">▶</span></h2>
             <div id="toc-content" class="toc-content">
                 <div class="toc-section">
                     <h3>Part I: Foundations of the Creator Economy</h3>
@@ -493,7 +507,7 @@
 
         
         <div class="complexity-tracking">
-            <h2 onclick="toggleComplexity()" style="cursor: pointer;">🧮 Mathematical & Theory Complexity <span id="complexity-toggle">▼</span></h2>
+            <h2 onclick="toggleComplexity()" style="cursor: pointer;">🧮 Mathematical & Theory Complexity <span id="complexity-toggle">▶</span></h2>
             <div id="complexity-content" class="complexity-content">
                 <div class="complexity-metrics">
                     <div class="complexity-metric">
@@ -543,7 +557,7 @@
 
         
         <div class="structural-tracking">
-            <h2 onclick="toggleStructural()" style="cursor: pointer;"> Overall Structural Progress <span id="structural-toggle">▼</span></h2>
+            <h2 onclick="toggleStructural()" style="cursor: pointer;"> Overall Structural Progress <span id="structural-toggle">▶</span></h2>
             <div id="structural-content" class="structural-content">
                 <div class="structural-metrics">
                     <div class="structural-metric">
@@ -1184,6 +1198,27 @@
                 toggle.textContent = '▶';
             }
         }
+        
+        // Initialize all sections as collapsed on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Collapse TOC
+            const tocContent = document.getElementById('toc-content');
+            const tocToggle = document.getElementById('toc-toggle');
+            tocContent.classList.add('collapsed');
+            tocToggle.textContent = '▶';
+            
+            // Collapse Complexity section
+            const complexityContent = document.getElementById('complexity-content');
+            const complexityToggle = document.getElementById('complexity-toggle');
+            complexityContent.classList.add('collapsed');
+            complexityToggle.textContent = '▶';
+            
+            // Collapse Structural section
+            const structuralContent = document.getElementById('structural-content');
+            const structuralToggle = document.getElementById('structural-toggle');
+            structuralContent.classList.add('collapsed');
+            structuralToggle.textContent = '▶';
+        });
     </script>
 </body>
 </html>
