@@ -48,6 +48,14 @@
             color: #000000;
             margin-top: 0;
             font-weight: 500;
+            user-select: none;
+        }
+        .toc-content {
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .toc-content.collapsed {
+            display: none;
         }
         .toc-section {
             margin-bottom: 25px;
@@ -341,117 +349,6 @@
             <h1> Creator Microeconomics Textbook Tracker</h1>
         </div>
 
-        <div class="table-of-contents">
-            <h2>Table of Contents</h2>
-            <div class="toc-section">
-                <h3>Part I: Foundations of the Creator Economy</h3>
-                <div class="toc-chapter">
-                    <h4>Chapter 1: Introduction to Creator Microeconomics</h4>
-                    <ul>
-                        <li>1.1 The Creator Economy as a New Economic System</li>
-                        <li>1.2 Content as a Digital Product</li>
-                        <li>1.3 From Gig Work to Creator Firms</li>
-                        <li>1.4 Preview: Content Yield Curves</li>
-                        <li>1.5 How People Make Decisions</li>
-                        <li>1.6 A Brief History of Creator Labor</li>
-                    </ul>
-                </div>
-                <div class="toc-chapter">
-                    <h4>Chapter 2: Economic Properties of Digital Goods</h4>
-                    <ul>
-                        <li>2.1 Non-rivalry and Zero Marginal Cost</li>
-                        <li>2.2 Network Effects and Platform Dynamics</li>
-                        <li>2.3 Attention as a Scarce Resource</li>
-                        <li>2.4 Digital vs. Physical Goods Markets</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="toc-section">
-                <h3>Part II: The Microeconomics of Creator Production</h3>
-                <div class="toc-chapter">
-                    <h4>Chapter 3: Creator Labor and Firm Behavior</h4>
-                    <ul>
-                        <li>3.1 Distinguishing Features of Creator Labor</li>
-                        <li>3.2 Deterministic vs. Stochastic Output</li>
-                        <li>3.3 Creator Firms and Production Functions</li>
-                        <li>3.4 Labor Theory and Creator Economics</li>
-                    </ul>
-                </div>
-                <div class="toc-chapter">
-                    <h4>Chapter 4: Content Yield Dynamics</h4>
-                    <ul>
-                        <li>4.1 Understanding Content Yield Curves</li>
-                        <li>4.2 Short-run vs. Long-run Content Strategy</li>
-                        <li>4.3 Platform Algorithm Effects</li>
-                        <li>4.4 Content Lifecycle Economics</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="toc-section">
-                <h3>Part III: Markets, Attention, and Value</h3>
-                <div class="toc-chapter">
-                    <h4>Chapter 5: Attention Markets</h4>
-                    <ul>
-                        <li>5.1 The Economics of Attention</li>
-                        <li>5.2 Supply and Demand in Attention Markets</li>
-                        <li>5.3 Platform Intermediation</li>
-                        <li>5.4 Attention Allocation Strategies</li>
-                    </ul>
-                </div>
-                <div class="toc-chapter">
-                    <h4>Chapter 6: Audience Stock and Quality</h4>
-                    <ul>
-                        <li>6.1 Building and Maintaining Audience Stock</li>
-                        <li>6.2 Quality Signals and Reputation</li>
-                        <li>6.3 Parasocial Relationships and Loyalty</li>
-                        <li>6.4 Audience Monetization Strategies</li>
-                    </ul>
-                </div>
-                <div class="toc-chapter">
-                    <h4>Chapter 7: Creator Market Structures</h4>
-                    <ul>
-                        <li>7.1 Monopolistic Competition in Creator Markets</li>
-                        <li>7.2 Platform Power and Creator Dependence</li>
-                        <li>7.3 Market Entry and Exit Dynamics</li>
-                        <li>7.4 Creator Collaboration and Competition</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="toc-section">
-                <h3>Part IV: Macro and Policy Perspectives</h3>
-                <div class="toc-chapter">
-                    <h4>Chapter 8: Creator Economy and GDP</h4>
-                    <ul>
-                        <li>8.1 Measuring Creator Economic Output</li>
-                        <li>8.2 Creator Economy in National Accounts</li>
-                        <li>8.3 Economic Multipliers and Spillovers</li>
-                        <li>8.4 Regional Creator Economy Development</li>
-                    </ul>
-                </div>
-                <div class="toc-chapter">
-                    <h4>Chapter 9: Regulation, IP, and Labor Policy</h4>
-                    <ul>
-                        <li>9.1 Intellectual Property in the Creator Economy</li>
-                        <li>9.2 Labor Rights and Creator Protections</li>
-                        <li>9.3 Platform Regulation and Antitrust</li>
-                        <li>9.4 Tax Policy and Creator Income</li>
-                    </ul>
-                </div>
-                <div class="toc-chapter">
-                    <h4>Chapter 10: Future Directions of Creator Firms</h4>
-                    <ul>
-                        <li>10.1 Emerging Technologies and Creator Tools</li>
-                        <li>10.2 Decentralized Creator Platforms</li>
-                        <li>10.3 Creator Economy and AI Integration</li>
-                        <li>10.4 Long-term Economic Implications</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         <div class="overview">
             <h2> Overall Progress</h2>
             <div class="metrics">
@@ -478,6 +375,119 @@
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" style="width: 27.456000000000003%"></div>
+            </div>
+        </div>
+
+        <div class="table-of-contents">
+            <h2 onclick="toggleTOC()" style="cursor: pointer;">📚 Table of Contents <span id="toc-toggle">▼</span></h2>
+            <div id="toc-content" class="toc-content">
+                <div class="toc-section">
+                    <h3>Part I: Foundations of the Creator Economy</h3>
+                    <div class="toc-chapter">
+                        <h4>Chapter 1: Introduction to Creator Microeconomics</h4>
+                        <ul>
+                            <li>1.1 The Creator Economy as a New Economic System</li>
+                            <li>1.2 Content as a Digital Product</li>
+                            <li>1.3 From Gig Work to Creator Firms</li>
+                            <li>1.4 Preview: Content Yield Curves</li>
+                            <li>1.5 How People Make Decisions</li>
+                            <li>1.6 A Brief History of Creator Labor</li>
+                        </ul>
+                    </div>
+                    <div class="toc-chapter">
+                        <h4>Chapter 2: Economic Properties of Digital Goods</h4>
+                        <ul>
+                            <li>2.1 Non-rivalry and Zero Marginal Cost</li>
+                            <li>2.2 Network Effects and Platform Dynamics</li>
+                            <li>2.3 Attention as a Scarce Resource</li>
+                            <li>2.4 Digital vs. Physical Goods Markets</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="toc-section">
+                    <h3>Part II: The Microeconomics of Creator Production</h3>
+                    <div class="toc-chapter">
+                        <h4>Chapter 3: Creator Labor and Firm Behavior</h4>
+                        <ul>
+                            <li>3.1 Distinguishing Features of Creator Labor</li>
+                            <li>3.2 Deterministic vs. Stochastic Output</li>
+                            <li>3.3 Creator Firms and Production Functions</li>
+                            <li>3.4 Labor Theory and Creator Economics</li>
+                        </ul>
+                    </div>
+                    <div class="toc-chapter">
+                        <h4>Chapter 4: Content Yield Dynamics</h4>
+                        <ul>
+                            <li>4.1 Understanding Content Yield Curves</li>
+                            <li>4.2 Short-run vs. Long-run Content Strategy</li>
+                            <li>4.3 Platform Algorithm Effects</li>
+                            <li>4.4 Content Lifecycle Economics</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="toc-section">
+                    <h3>Part III: Markets, Attention, and Value</h3>
+                    <div class="toc-chapter">
+                        <h4>Chapter 5: Attention Markets</h4>
+                        <ul>
+                            <li>5.1 The Economics of Attention</li>
+                            <li>5.2 Supply and Demand in Attention Markets</li>
+                            <li>5.3 Platform Intermediation</li>
+                            <li>5.4 Attention Allocation Strategies</li>
+                        </ul>
+                    </div>
+                    <div class="toc-chapter">
+                        <h4>Chapter 6: Audience Stock and Quality</h4>
+                        <ul>
+                            <li>6.1 Building and Maintaining Audience Stock</li>
+                            <li>6.2 Quality Signals and Reputation</li>
+                            <li>6.3 Parasocial Relationships and Loyalty</li>
+                            <li>6.4 Audience Monetization Strategies</li>
+                        </ul>
+                    </div>
+                    <div class="toc-chapter">
+                        <h4>Chapter 7: Creator Market Structures</h4>
+                        <ul>
+                            <li>7.1 Monopolistic Competition in Creator Markets</li>
+                            <li>7.2 Platform Power and Creator Dependence</li>
+                            <li>7.3 Market Entry and Exit Dynamics</li>
+                            <li>7.4 Creator Collaboration and Competition</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="toc-section">
+                    <h3>Part IV: Macro and Policy Perspectives</h3>
+                    <div class="toc-chapter">
+                        <h4>Chapter 8: Creator Economy and GDP</h4>
+                        <ul>
+                            <li>8.1 Measuring Creator Economic Output</li>
+                            <li>8.2 Creator Economy in National Accounts</li>
+                            <li>8.3 Economic Multipliers and Spillovers</li>
+                            <li>8.4 Regional Creator Economy Development</li>
+                        </ul>
+                    </div>
+                    <div class="toc-chapter">
+                        <h4>Chapter 9: Regulation, IP, and Labor Policy</h4>
+                        <ul>
+                            <li>9.1 Intellectual Property in the Creator Economy</li>
+                            <li>9.2 Labor Rights and Creator Protections</li>
+                            <li>9.3 Platform Regulation and Antitrust</li>
+                            <li>9.4 Tax Policy and Creator Income</li>
+                        </ul>
+                    </div>
+                    <div class="toc-chapter">
+                        <h4>Chapter 10: Future Directions of Creator Firms</h4>
+                        <ul>
+                            <li>10.1 Emerging Technologies and Creator Tools</li>
+                            <li>10.2 Decentralized Creator Platforms</li>
+                            <li>10.3 Creator Economy and AI Integration</li>
+                            <li>10.4 Long-term Economic Implications</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1152,6 +1162,19 @@
         function toggleComplexity() {
             const content = document.getElementById('complexity-content');
             const toggle = document.getElementById('complexity-toggle');
+            
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                toggle.textContent = '▼';
+            } else {
+                content.classList.add('collapsed');
+                toggle.textContent = '▶';
+            }
+        }
+        
+        function toggleTOC() {
+            const content = document.getElementById('toc-content');
+            const toggle = document.getElementById('toc-toggle');
             
             if (content.classList.contains('collapsed')) {
                 content.classList.remove('collapsed');
